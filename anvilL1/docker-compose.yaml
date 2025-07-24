@@ -12,8 +12,8 @@ services:
     entrypoint: ["sh", "-c"]
     command: |
       "if [ -f /app/data/state.json ]; then
-        anvil --load-state /app/data/state.json --block-time 1 --state-interval 5 --dump-state /app/data/state.json --host 0.0.0.0 --port 8545
+        anvil --load-state /app/data/state.json --hardfork prague --state-interval 5 --dump-state /app/data/state.json --host 0.0.0.0 --port 8545
       else
-        anvil --block-time 1 --state-interval 5 --dump-state /app/data/state.json --host 0.0.0.0 --port 8545
+        anvil --hardfork prague --state-interval 5 --dump-state /app/data/state.json --host 0.0.0.0 --port 8545
       fi"
     restart: unless-stopped
